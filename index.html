@@ -6,69 +6,158 @@
 <title>Army & CDS Guide</title>
 
 <style>
-body{
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    margin:0;
-    background:#f4f4f4;
+    color: #fff; 
+    
+    /* आपकी ओरिजिनल इमेज को लाइव लिंक में बदल दिया है ताकि 100% लोड हो */
+    background-image: linear-gradient(rgba(15, 23, 15, 0.82), rgba(15, 23, 15, 0.88)), 
+                      url('https://images.unsplash.com/photo-1614093697274-ed984a9235e1?q=80&w=1200&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
 }
 
-header{
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-    background-image:url('https://images.unsplash.com/photo-1520975928316-7b7c3a7c1a9f?auto=format&fit=crop&w=1200&q=80');
-    background-size:cover;
-    background-position:center;
+/* अगर अनस्प्लैश लिंक कभी धीमा हो, तो बैकअप के लिए सॉलिड मिलिट्री बैकग्राउंड काम करेगा */
+@media (max-width: 768px) {
+    body {
+        background-color: #151d16;
+    }
 }
 
-nav{
-    background:#222;
-    padding:12px;
-    text-align:center;
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0, 0, 0, 0.5); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:10px;
-    font-weight:bold;
+header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    color: #f4ca16; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
-.card{
-    background:white;
-    margin:15px;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+header p {
+    font-size: 1.1rem;
+    color: #ddd;
 }
 
-h2{
-    color:#0b3d91;
+/* Navigation */
+nav {
+    background: rgba(20, 20, 20, 0.95);
+    padding: 14px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #f4ca16;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f4ca16;
+}
+
+/* Layout Content Container */
+.container {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+/* Modern Dark Cards Styling (Glassmorphism) */
+.card {
+    background: rgba(25, 33, 26, 0.92); 
+    margin-bottom: 20px;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card h2 {
+    color: #f4ca16; 
+    margin-bottom: 12px;
+    font-size: 22px;
+    border-left: 4px solid #ff3b30; 
+    padding-left: 10px;
+}
+
+.card p {
+    color: #e0e0e0;
+    font-size: 15px;
+}
+
+/* Quiz Style */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 20px 0;
 }
 
 button {
-    background-color: #0b3d91;
+    background-color: #ff3b30; 
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 14px 20px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     width: 100%;
-    max-width: 300px;
+    max-width: 450px;
     text-align: left;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 button:hover {
-    background-color: #1a5ca3;
+    background-color: #e02e24;
+    transform: translateX(6px);
 }
 
-footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top: 20px;
+#result {
+    font-weight: bold;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+#score-box {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+/* Footer */
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 14px;
 }
 </style>
 </head>
@@ -77,7 +166,7 @@ footer{
 
 <header>
     <h1>🇮🇳 Army & CDS Guide</h1>
-    <p>Army, Agniveer & CDS Preparation</p>
+    <p>Army, Agniveer & CDS Preparation Portal</p>
 </header>
 
 <nav>
@@ -87,40 +176,48 @@ footer{
     <a href="#">Current Affairs</a>
 </nav>
 
-<div class="card">
-    <h2>CDS Preparation</h2>
-    <p>CDS syllabus, books, previous papers and preparation strategy.</p>
+<div class="container">
+    <div class="card">
+        <h2>CDS Preparation</h2>
+        <p>CDS syllabus, books, previous papers and preparation strategy.</p>
+    </div>
+
+    <div class="card">
+        <h2>Agniveer Preparation</h2>
+        <p>Physical test, medical test and written exam guidance.</p>
+    </div>
+
+    <div class="card">
+        <h2>Current Affairs</h2>
+        <p>Daily defence current affairs and important updates.</p>
+    </div>
+
+    <div class="card">
+        <h2>CDS Notes PDF</h2>
+        <a href="https://drive.google.com/file/d/1gI0iRZYL7dUF7bH1QzWn-IJUl1BfAzK3/view?usp=drivesdk" target="_blank" style="color: #f4ca16; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 5px;">
+            📥 CDS Notes Download
+        </a>
+    </div>
+
+    <div class="card">
+        <h2>Army & CDS Quiz</h2>
+        <p id="question" style="font-weight: bold; font-size: 18px; margin-bottom: 15px;"></p>
+
+        <div class="quiz-container">
+            <button onclick="checkAnswer(0)" id="btn0"></button>
+            <button onclick="checkAnswer(1)" id="btn1"></button>
+            <button onclick="checkAnswer(2)" id="btn2"></button>
+            <button onclick="checkAnswer(3)" id="btn3"></button>
+        </div>
+
+        <p id="result"></p>
+        <p id="score-box"><b>Score:</b> <span id="score" style="color: #f4ca16; font-weight: bold;">0</span></p>
+    </div>
 </div>
 
-<div class="card">
-    <h2>Agniveer Preparation</h2>
-    <p>Physical test, medical test and written exam guidance.</p>
-</div>
-
-<div class="card">
-    <h2>Current Affairs</h2>
-    <p>Daily defence current affairs and important updates.</p>
-</div>
-
-<div class="card">
-    <h2>CDS Notes PDF</h2>
-    <a href="https://drive.google.com/file/d/1gI0iRZYL7dUF7bH1QzWn-IJUl1BfAzK3/view?usp=drivesdk" target="_blank" style="color: #0b3d91; font-weight: bold; text-decoration: none;">
-        📥 CDS Notes Download
-    </a>
-</div>
-
-<div class="card">
-    <h2>Army & CDS Quiz</h2>
-    <p id="question" style="font-weight: bold; font-size: 18px;"></p>
-
-    <button onclick="checkAnswer(0)" id="btn0"></button><br><br>
-    <button onclick="checkAnswer(1)" id="btn1"></button><br><br>
-    <button onclick="checkAnswer(2)" id="btn2"></button><br><br>
-    <button onclick="checkAnswer(3)" id="btn3"></button>
-
-    <p id="result" style="font-weight: bold; margin-top: 15px; font-size: 16px;"></p>
-    <p><b>Score:</b> <span id="score">0</span></p>
-</div>
+<footer>
+    © 2026 Army & CDS Guide
+</footer>
 
 <script>
 let questions = [
@@ -155,48 +252,43 @@ let current = 0;
 let score = 0;
 
 function loadQuestion(){
-    document.getElementById("question").innerHTML = (current+1)+". "+questions[current].q;
-
-    for(let i=0;i<4;i++){
-        document.getElementById("btn"+i).innerHTML = questions[current].o[i];
+    if (current < questions.length) {
+        document.getElementById("question").innerHTML = (current+1)+". "+questions[current].q;
+        for(let i=0; i<4; i++){
+            document.getElementById("btn"+i).innerHTML = questions[current].o[i];
+            document.getElementById("btn"+i).style.display = "block";
+        }
     }
 }
 
 function checkAnswer(choice){
-    if(choice==questions[current].a){
+    if(choice == questions[current].a){
         score++;
         document.getElementById("score").innerHTML = score;
-        document.getElementById("result").innerHTML = "✅ सही उत्तर";
+        document.getElementById("result").innerHTML = "<span style='color: #4caf50;'>✅ सही उत्तर</span>";
     }else{
-        document.getElementById("result").innerHTML = "❌ गलत उत्तर";
+        document.getElementById("result").innerHTML = "<span style='color: #ff5252;'>❌ गलत उत्तर</span>";
     }
 
     current++;
 
-    if(current<questions.length){
-        setTimeout(function() {
-            document.getElementById("result").innerHTML = "";
+    setTimeout(function() {
+        document.getElementById("result").innerHTML = "";
+        
+        if(current < questions.length){
             loadQuestion();
-        }, 1000);
-    }else{
-        setTimeout(function() {
+        } else {
             document.getElementById("question").innerHTML = "Quiz Complete 🎉";
-            document.getElementById("result").innerHTML = "Final Score: "+score+"/"+questions.length;
-            // Buttons hide karne ke liye
-            for(let i=0;i<4;i++){
+            document.getElementById("result").innerHTML = "Final Score: " + score + "/" + questions.length;
+            for(let i=0; i<4; i++){
                 document.getElementById("btn"+i).style.display = "none";
             }
-        }, 1000);
-    }
+        }
+    }, 1000);
 }
 
-// Pehli baar quiz load karne ke liye
 loadQuestion();
 </script>
-
-<footer>
-    © 2026 Army & CDS Guide
-</footer>
 
 </body>
 </html>
